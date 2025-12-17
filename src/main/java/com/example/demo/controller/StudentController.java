@@ -33,6 +33,6 @@ public class StudentController {
     public String updateData(@PathVariable int id ,@RequestBody Student stu){
           stu.setId(id);
           ser.createData(stu);
-          return "Data fetched Successfully"
+          return "Data fetched Successfully!";
     }
 }

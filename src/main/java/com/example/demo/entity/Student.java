@@ -10,8 +10,9 @@ public class Student{                             //in entity -> class name=tabl
     @Id           //primary key annotation
     private int id;   
     // @GeneratedValue(strategy=GenerationType.IDENTITY)      //auto increment    -> if this given means remove 'this.id=id' in parameterized constructor, if not given means keep it
-    private String email;       //columns of table ->id,name,email,cgpa
     private String name;
+    private String email;       //columns of table ->id,name,email,cgpa
+
     private String cgpa;
     
     public int getId() {
