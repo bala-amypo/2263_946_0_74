@@ -16,9 +16,11 @@ public class StudentServiceimpl implements StudentService{
     public Student createData(Student stu){
         return repo.save(stu);
     }
-    
+
      @Override
     public List<Student> fetchrecord(){
         return repo.findAll();
     }
+
+    
 }
