@@ -1,9 +1,13 @@
 package com.example.demo.controller;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Student;
@@ -24,15 +28,14 @@ public class StudentController {
     public List<Student> fetchrecord(){
         return ser.fetchrecord();
     }
-
-    @GetMapping("/fetchdatabyid/{id}")
-    public Optional<Student> fetchDataById(@PathVariable int id){
-        return ser.fetchDataById(id);
+    @GetMapping("/fetchbyid/{id}")
+    public Optional<Student> fetchByID(@PathVariable int id){
+        return ser.fetchByID(id);
     }
     @PutMapping("/updatedata/{id}")
-    public String updateData(@PathVariable int id ,@RequestBody Student stu){
-          stu.setId(id);
-          ser.createData(stu);
-          return "Data fetched Successfully!";
+    public String updateDate(@PathVariable int id,@RequestBody Student stu){
+        stu.setId(id);
+        ser.createData(stu);
+        return "Data updated successfully";
     }
 }
