@@ -8,5 +8,5 @@ public interface StudentService{
 
     Student createData(Student stu);
     List<Student> fetchrecord();
-    Optional<Student> fetchDataById(int id);
+    Optional<Student> fetchByID(int id);
 }

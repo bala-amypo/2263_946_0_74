@@ -1,6 +1,6 @@
 package com.example.demo.service.impl;
-import java.util.*;
-
+import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.entity.Student;
 import com.example.demo.repository.StudentRepository;
@@ -17,11 +17,15 @@ public class StudentServiceimpl implements StudentService{
     public Student createData(Student stu){
         return repo.save(stu);
     }
+
     @Override
     public List<Student> fetchrecord(){
         return repo.findAll();
     }
-    public Optional<Student> fetchDataById(int id){
+
+    @Override
+    public Optional<Student> fetchByID(int id){
         return repo.findById(id);
     }
+    
 }
