@@ -34,8 +34,27 @@ public class StudentController {
     }
     @PutMapping("/updatedata/{id}")
     public String updateDate(@PathVariable int id,@RequestBody Student stu){
+       Optional<Student>student=ser.fetchById(id);
+       if(student.isPresent()){
         stu.setId(id);
         ser.createData(stu);
         return "Data updated successfully";
+        }
+        else{
+        return id+" Not found";
+        }
     }
+    @DeleteMapping("/deletedata/{id}")
+    public String deleteData(@PathVariable int id){
+        Optional<Student>student=ser.fetchByID(id);
+        if(student.isPresent()){
+            ser.deleteData(id);
+            return "Data deleted successfully";
+        }
+        else{
+            return id+" Data not found";
+        }
+        
+    }
+
 }
